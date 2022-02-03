@@ -7,9 +7,24 @@ class CrearCuenta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: <Widget>[
-          SvgPicture.asset("lib/img/tclogonaranja.svg"),
+          Container(
+            alignment: Alignment.topCenter,
+            child: SvgPicture.asset(
+              "lib/img/tclogonaranja.svg",
+              alignment: Alignment.topCenter,
+            ),
+          ),
+          const Text(
+            'Registrate',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.deepOrange,
+            ),
+          ),
         ],
       ),
     );
