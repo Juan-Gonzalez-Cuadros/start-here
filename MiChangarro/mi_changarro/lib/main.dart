@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mi_changarro/crear_cuenta.dart';
 import 'package:mi_changarro/iniciar_sesion.dart';
@@ -8,7 +9,7 @@ import 'package:mi_changarro/iniciar_sesion.dart';
 // Conectaa con botones a 'Iniciar Sesion' y 'Crear Cuenta'
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MaterialApp(home: MyApp()));
+  runApp(const MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                const Align(alignment: Alignment.centerLeft),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                   child: Text(
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: Colors.deepOrange,
+                      color: Color(0xFFFF5D39),
                     ),
                   ),
                 ),
@@ -61,14 +63,14 @@ class MyApp extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (context) => IniciarSesion()),
+                                  builder: (context) => const IniciarSesion()),
                             );
                           },
                           child: const Text(
                             'Inicia Sesión',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Color(0xFFFFFFFC)),
                           ),
-                          color: Colors.blue[800],
+                          color: const Color(0xFF2274A5),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18),
                           ),
@@ -77,14 +79,14 @@ class MyApp extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (context) => CrearCuenta()),
+                                  builder: (context) => const CrearCuenta()),
                             );
                           },
                           child: const Text(
                             'Crear Cuenta',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Color(0xFFFFFFFC)),
                           ),
-                          color: Colors.blue[800],
+                          color: const Color(0xFF2274A5),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18),
                           ),
