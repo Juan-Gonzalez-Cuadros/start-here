@@ -17,87 +17,100 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return MaterialApp(
       title: 'Mi Changarro',
       home: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            SvgPicture.asset(
-              "lib/img/tcinicio.svg",
-              alignment: Alignment.center,
-              fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Align(alignment: Alignment.centerLeft),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                  child: Text(
-                    '¿Sin ganas de salir?',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFF5D39),
-                    ),
-                  ),
+        body: SizedBox(
+          height: size.height,
+          width: double.infinity,
+          child: Stack(
+            children: <Widget>[
+              //Imagen svg de fondo
+              Positioned(
+                top: 30,
+                left: 0,
+                child: SvgPicture.asset(
+                  "lib/img/tcinicio.svg",
+                  width: size.width,
                 ),
-                Column(
+              ),
+              //Contenido: Titulo, Parrafo y botones
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 40, 60, 60),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    const Align(alignment: Alignment.centerLeft),
                     const Text(
-                      'No te preocupes. Tenemos una gran selección de productos de tiendas locales. Lo que necesites lo llevamos a tu casa.',
+                      '¿Sin ganas de salir?',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFF5D39),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    const SizedBox(height: 33),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MaterialButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => const IniciarSesion()),
-                            );
-                          },
-                          child: const Text(
-                            'Inicia Sesión',
-                            style: TextStyle(color: Color(0xFFFFFFFC)),
-                          ),
-                          color: const Color(0xFF2274A5),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
+                        const Text(
+                          'No te preocupes. Tenemos una gran selección de productos de tiendas locales. Lo que necesites lo llevamos a tu casa.',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 19,
+                            color: Colors.white,
                           ),
                         ),
-                        MaterialButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => const CrearCuenta()),
-                            );
-                          },
-                          child: const Text(
-                            'Crear Cuenta',
-                            style: TextStyle(color: Color(0xFFFFFFFC)),
-                          ),
-                          color: const Color(0xFF2274A5),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
+                        const SizedBox(height: 60),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const IniciarSesion()),
+                                );
+                              },
+                              child: const Text(
+                                'Inicia Sesión',
+                                style: TextStyle(color: Color(0xFFFFFFFC)),
+                              ),
+                              color: const Color(0xFF2274A5),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                            ),
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CrearCuenta()),
+                                );
+                              },
+                              child: const Text(
+                                'Crear Cuenta',
+                                style: TextStyle(color: Color(0xFFFFFFFC)),
+                              ),
+                              color: const Color(0xFF2274A5),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );
