@@ -86,15 +86,15 @@ class CrearCuenta extends StatelessWidget {
 Widget buildNombre() => TextFormField(
       decoration: const InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           hintText: "Nombre completo",
           labelStyle: TextStyle(color: Color(0xFF2274A5)),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           )),
       keyboardType: TextInputType.name,
@@ -103,15 +103,15 @@ Widget buildNombre() => TextFormField(
 Widget buildCorreo() => TextFormField(
       decoration: const InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           hintText: "Correo electrónico",
           labelStyle: TextStyle(color: Color(0xFF2274A5)),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           )),
       keyboardType: TextInputType.emailAddress,
@@ -120,15 +120,15 @@ Widget buildCorreo() => TextFormField(
 Widget buildTelefono() => TextFormField(
       decoration: const InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           hintText: "Teléfono",
           labelStyle: TextStyle(color: Color(0xFF2274A5)),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           )),
       keyboardType: TextInputType.phone,
@@ -137,15 +137,15 @@ Widget buildTelefono() => TextFormField(
 Widget buildFechaN() => TextFormField(
       decoration: const InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           hintText: "Fecha de nacimiento",
           labelStyle: TextStyle(color: Color(0xFF2274A5)),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           )),
       keyboardType: TextInputType.datetime,
@@ -154,15 +154,15 @@ Widget buildFechaN() => TextFormField(
 Widget buildPassword() => TextFormField(
       decoration: const InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           hintText: "Contraseña",
           labelStyle: TextStyle(color: Color(0xFF2274A5)),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           )),
       keyboardType: TextInputType.visiblePassword,
@@ -172,15 +172,15 @@ Widget buildPassword() => TextFormField(
 Widget buildComfirmPassword() => TextFormField(
       decoration: const InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           hintText: "Confirmar contraseña",
           labelStyle: TextStyle(color: Color(0xFF2274A5)),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
             borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
           )),
       keyboardType: TextInputType.visiblePassword,
