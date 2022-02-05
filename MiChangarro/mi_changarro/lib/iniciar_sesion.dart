@@ -11,14 +11,17 @@ class IniciarSesion extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Stack(
-            children: <Widget>[
-              SvgPicture.asset(
-                "lib/img/tcinicsesion.svg",
-                height: 100,
-              ),
-              SvgPicture.asset("lib/img/tclogoblanco.svg"),
-            ],
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.45,
+            child: Stack(
+              children: <Widget>[
+                SvgPicture.asset(
+                  "lib/img/tcinicsesion.svg",
+                  height: 100,
+                ),
+                SvgPicture.asset("lib/img/tclogoblanco.svg"),
+              ],
+            ),
           ),
           const Text(
             'Inicia sesión',
