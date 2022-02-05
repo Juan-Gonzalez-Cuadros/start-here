@@ -9,10 +9,13 @@ class IniciarSesion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //Imagen con logo
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.45,
+            height: MediaQuery.of(context).size.height * 0.30,
             child: Stack(
               children: <Widget>[
                 SvgPicture.asset(
@@ -23,37 +26,80 @@ class IniciarSesion extends StatelessWidget {
               ],
             ),
           ),
-          const Text(
-            'Inicia sesión',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFFFF5D39),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.fromLTRB(40, 0, 70, 0),
+            child: const FittedBox(
+              fit: BoxFit.cover,
+              child: Text(
+                'Inicia sesión',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFF5D39),
+                ),
+              ),
             ),
           ),
-          Column(
-            children: const [
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Nombre completo",
-                  labelStyle: TextStyle(color: Color(0xFF2274A5)),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4.0))),
-                  fillColor: Color(0xFFFFBD2D),
-                  filled: true,
-                ),
-                keyboardType: TextInputType.name,
-                obscureText: true,
-                maxLength: 30,
-              ),
-              SizedBox(
-                height: 16,
-              ),
-            ],
+          //Login Form
+          Container(
+            padding: const EdgeInsets.fromLTRB(40, 0, 70, 0),
+            child: Column(
+              children: [
+                const SizedBox(height: 16),
+                buildISCorreo(),
+                const SizedBox(height: 16),
+                buildISPassword(),
+                const SizedBox(height: 16),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
+
+Widget buildISCorreo() => const TextField(
+      decoration: InputDecoration(
+        isDense: true,
+        contentPadding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
+        prefixIcon: Icon(Icons.person, color: Color(0xFFFFFFFC)),
+        hintText: "Correo",
+        labelStyle: TextStyle(color: Color(0xFFFFFFFC)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
+        ),
+        fillColor: Color(0xFFFFBD2D),
+        filled: true,
+      ),
+      keyboardType: TextInputType.emailAddress,
+    );
+
+Widget buildISPassword() => const TextField(
+      decoration: InputDecoration(
+        isDense: true,
+        contentPadding: EdgeInsets.symmetric(horizontal: 50, vertical: 8),
+        prefix: null,
+        hintText: "Contraseña",
+        labelStyle: TextStyle(color: Color(0xFFFFFFFC)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          borderSide: BorderSide(color: Color(0xFFFFBD2D), width: 2),
+        ),
+        fillColor: Color(0xFFFFBD2D),
+        filled: true,
+      ),
+      keyboardType: TextInputType.visiblePassword,
+      obscureText: true,
+    );
