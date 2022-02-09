@@ -12,7 +12,7 @@ class IniciarSesion extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //Imagen con logo
           SizedBox(
@@ -22,6 +22,8 @@ class IniciarSesion extends StatelessWidget {
               children: <Widget>[
                 SvgPicture.asset(
                   "lib/img/tcinicsesion.svg",
+                  //Transform a la izquierda
+                  //Usar safe area
                   fit: BoxFit.fitWidth,
                   //width: 1000,
                 ),
