@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mi_changarro/crear_cuenta.dart';
 
 class IniciarSesion extends StatelessWidget {
   const IniciarSesion({Key? key}) : super(key: key);
@@ -36,7 +37,6 @@ class IniciarSesion extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 40,
-                  fontWeight: FontWeight.bold,
                   color: Color(0xFFFF5D39),
                 ),
               ),
@@ -52,6 +52,41 @@ class IniciarSesion extends StatelessWidget {
                 const SizedBox(height: 16),
                 buildISPassword(),
                 const SizedBox(height: 16),
+                // Textos olvde contraseña y crear cuenta
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text("Olvidé mi contraseña",
+                            style: TextStyle(
+                                decoration: TextDecoration.underline)),
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            alignment: Alignment.centerLeft),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const CrearCuenta()));
+                        },
+                        child: const Text("Crear cuenta",
+                            style: TextStyle(
+                                decoration: TextDecoration.underline)),
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            alignment: Alignment.topLeft),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -65,7 +100,10 @@ Widget buildISCorreo() => const TextField(
       decoration: InputDecoration(
         isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
-        prefixIcon: Icon(Icons.person, color: Color(0xFFFFFFFC)),
+        prefixIcon: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 10),
+          child: Icon(Icons.person, color: Color(0xFFFFFFFC)),
+        ),
         hintText: "Correo",
         labelStyle: TextStyle(color: Color(0xFFFFFFFC)),
         enabledBorder: OutlineInputBorder(
@@ -85,7 +123,7 @@ Widget buildISCorreo() => const TextField(
 Widget buildISPassword() => const TextField(
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 50, vertical: 8),
+        contentPadding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
         prefix: null,
         hintText: "Contraseña",
         labelStyle: TextStyle(color: Color(0xFFFFFFFC)),
