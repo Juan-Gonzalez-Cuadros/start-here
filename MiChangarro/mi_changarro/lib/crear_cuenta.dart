@@ -7,77 +7,80 @@ class CrearCuenta extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFFFFFFC),
-        shadowColor: Colors.transparent,
-        leading: const BackButton(
-          color: Color(0xFF2274A5),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          backgroundColor: const Color(0xFFFFFFFC),
+          shadowColor: Colors.transparent,
+          leading: const BackButton(
+            color: Color(0xFF2274A5),
+          ),
+          title: SvgPicture.asset(
+            "lib/img/tclogonaranja.svg",
+            alignment: Alignment.topCenter,
+          ),
+          centerTitle: true,
         ),
-        title: SvgPicture.asset(
-          "lib/img/tclogonaranja.svg",
-          alignment: Alignment.topCenter,
-        ),
-        centerTitle: true,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            alignment: Alignment.topLeft,
-            padding: const EdgeInsets.fromLTRB(45, 0, 45, 0),
-            child: const FittedBox(
-              fit: BoxFit.cover,
-              child: Text(
-                'Registrate',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 55,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFFF5D39),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.fromLTRB(45, 0, 45, 0),
+              child: const FittedBox(
+                fit: BoxFit.cover,
+                child: Text(
+                  'Registrate',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 55,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFFF5D39),
+                  ),
                 ),
               ),
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(45),
-            child: Form(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  buildNombre(),
-                  const SizedBox(height: 20),
-                  buildCorreo(),
-                  const SizedBox(height: 20),
-                  buildTelefono(),
-                  const SizedBox(height: 20),
-                  buildFechaN(),
-                  const SizedBox(height: 20),
-                  buildPassword(),
-                  const SizedBox(height: 20),
-                  buildComfirmPassword(),
-                  const SizedBox(height: 50),
-                  MaterialButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const MyApp()),
-                      );
-                    },
-                    child: const Text(
-                      'Siguiente',
-                      style: TextStyle(color: Color(0xFFFFFFFC)),
+            Container(
+              padding: const EdgeInsets.all(45),
+              child: Form(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    buildNombre(),
+                    const SizedBox(height: 20),
+                    buildCorreo(),
+                    const SizedBox(height: 20),
+                    buildTelefono(),
+                    const SizedBox(height: 20),
+                    buildFechaN(),
+                    const SizedBox(height: 20),
+                    buildPassword(),
+                    const SizedBox(height: 20),
+                    buildComfirmPassword(),
+                    const SizedBox(height: 50),
+                    MaterialButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => const MyApp()),
+                        );
+                      },
+                      child: const Text(
+                        'Siguiente',
+                        style: TextStyle(color: Color(0xFFFFFFFC)),
+                      ),
+                      color: const Color(0xFFFFBD2D),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
                     ),
-                    color: const Color(0xFFFFBD2D),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
