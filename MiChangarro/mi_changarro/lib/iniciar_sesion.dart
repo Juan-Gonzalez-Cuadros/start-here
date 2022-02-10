@@ -3,143 +3,152 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mi_changarro/crear_cuenta.dart';
+import 'package:mi_changarro/home.dart';
 
 class IniciarSesion extends StatelessWidget {
   const IniciarSesion({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Column(
-        //mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          //Imagen con logo
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.40,
-            child: Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                SvgPicture.asset(
-                  "lib/img/tcinicsesion.svg",
-                  //Transform a la izquierda
-                  //Usar safe area
-                  fit: BoxFit.fitWidth,
-                  //width: 1000,
-                ),
-                SvgPicture.asset("lib/img/tclogoblanco.svg"),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
+            //Imagen con logo
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.40,
+              child: Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  Transform.scale(
+                    scale: 2.5,
+                    child: Transform.translate(
+                      offset: const Offset(-40, -88),
+                      child: SvgPicture.asset(
+                        "lib/img/tcinicsesion.svg",
+                      ),
+                    ),
+                  ),
+                  SvgPicture.asset("lib/img/tclogoblanco.svg"),
+                ],
+              ),
             ),
-          ),
-          Container(
-            alignment: Alignment.topLeft,
-            padding: const EdgeInsets.fromLTRB(40, 0, 70, 0),
-            child: const FittedBox(
-              fit: BoxFit.cover,
-              child: Text(
-                'Inicia sesión',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 40,
-                  color: Color(0xFFFF5D39),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.fromLTRB(40, 10, 70, 0),
+              child: const FittedBox(
+                fit: BoxFit.cover,
+                child: Text(
+                  'Inicia sesión',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Color(0xFFFF5D39),
+                  ),
                 ),
               ),
             ),
-          ),
-          //Login Form
-          Container(
-            padding: const EdgeInsets.fromLTRB(40, 0, 70, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                buildISCorreo(),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 200,
-                      child: buildISPassword(),
-                    ),
-                    Ink(
-                      decoration: const ShapeDecoration(
-                          shape: CircleBorder(), color: Color(0xFF2274A5)),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.arrow_right),
-                        color: const Color(0xFFFFFFFC),
-                        iconSize: 40,
+            //Login Form
+            Container(
+              padding: const EdgeInsets.fromLTRB(40, 0, 70, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 16),
+                  buildISCorreo(),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 220,
+                        child: buildISPassword(),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                // Textos olvde contraseña y crear cuenta
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text("Olvidé mi contraseña",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline)),
-                        style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            alignment: Alignment.centerLeft),
+                      Ink(
+                        decoration: const ShapeDecoration(
+                            shape: CircleBorder(), color: Color(0xFF2274A5)),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Home()));
+                          },
+                          icon: const Icon(Icons.arrow_right),
+                          color: const Color(0xFFFFFFFC),
+                          iconSize: 40,
+                        ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CrearCuenta()));
-                        },
-                        child: const Text("Crear cuenta",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline)),
-                        style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            alignment: Alignment.topLeft),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  // Textos olvde contraseña y crear cuenta
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text("Olvidé mi contraseña",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline)),
+                          style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              alignment: Alignment.centerLeft),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                // Botones de facebook y mail
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Ink(
-                      decoration: const ShapeDecoration(
-                          shape: CircleBorder(), color: Color(0xFF2274A5)),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.facebook),
-                        color: const Color(0xFFFFFFFC),
-                        iconSize: 40,
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const CrearCuenta()));
+                          },
+                          child: const Text("Crear cuenta",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline)),
+                          style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              alignment: Alignment.topLeft),
+                        ),
                       ),
-                    ),
-                    Ink(
-                      decoration: const ShapeDecoration(
-                          shape: CircleBorder(), color: Color(0xFF2274A5)),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.mail_rounded),
-                        color: const Color(0xFFFFFFFC),
-                        iconSize: 40,
+                    ],
+                  ),
+                  // Botones de facebook y mail
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Ink(
+                        decoration: const ShapeDecoration(
+                            shape: CircleBorder(), color: Color(0xFF2274A5)),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.facebook),
+                          color: const Color(0xFFFFFFFC),
+                          iconSize: 40,
+                        ),
                       ),
-                    ),
-                  ],
-                )
-              ],
+                      Ink(
+                        decoration: const ShapeDecoration(
+                            shape: CircleBorder(), color: Color(0xFF2274A5)),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.mail_rounded),
+                          color: const Color(0xFFFFFFFC),
+                          iconSize: 40,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
