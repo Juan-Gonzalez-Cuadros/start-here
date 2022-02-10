@@ -15,10 +15,11 @@ class _InicioState extends State<Inicio> {
       child: Column(
         children: const <Widget>[
           Text(
-            'Hola USUARIO',
+            'Hola, USUARIO',
             textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.bold,
               color: Color(0xFFFF5D39),
             ),
           ),
