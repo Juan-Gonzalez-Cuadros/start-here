@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Inicio extends StatefulWidget {
   Inicio({Key? key}) : super(key: key);
@@ -34,7 +35,6 @@ class _InicioState extends State<Inicio> {
             style: TextButton.styleFrom(
                 padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
           ),
-          const SizedBox(height: 16),
           //Categorias
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,11 +60,11 @@ class _InicioState extends State<Inicio> {
           //Tarjetas de categorias
           SizedBox(
             height: 80,
-            child: ListView(
+            child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              children: [
-                buildCardCategory(),
-              ],
+              itemCount: 5,
+              separatorBuilder: (context, _) => const SizedBox(width: 12),
+              itemBuilder: (context, index) => buildCardCategory(),
             ),
           ),
           const SizedBox(height: 20),
@@ -79,15 +79,26 @@ class _InicioState extends State<Inicio> {
             ),
           ),
           //Tarjetas negocios populares
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                buildCardPopulares(),
-              ],
+          SizedBox(
+            height: 160,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: 3,
+              separatorBuilder: (context, _) => const SizedBox(width: 12),
+              itemBuilder: (context, index) => buildCardPopulares(),
             ),
           ),
+          const SizedBox(height: 20),
           //Tarjetas negocios
+          SizedBox(
+            height: 160,
+            child: ListView.separated(
+              scrollDirection: Axis.vertical,
+              itemCount: 3,
+              separatorBuilder: (context, _) => const SizedBox(height: 12),
+              itemBuilder: (context, index) => buildCardShop(),
+            ),
+          ),
         ],
       ),
     );
@@ -97,26 +108,145 @@ class _InicioState extends State<Inicio> {
 Widget buildCardCategory() => Container(
       width: 80,
       height: 80,
-      color: const Color(0xFFE5E3E3),
+      decoration: const BoxDecoration(
+          color: Color(0xFFE5E3E3),
+          borderRadius: BorderRadius.all(Radius.circular(8))),
       //child: Image,
     );
 
 Widget buildCardPopulares() => Container(
-      width: 180,
-      height: 140,
-      color: const Color(0xFFF5F4F4),
+      padding: const EdgeInsets.all(8),
+      width: 200,
+      height: 160,
+      decoration: const BoxDecoration(
+          color: Color(0xFFF5F4F4),
+          borderRadius: BorderRadius.all(Radius.circular(8))),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          //Image
+          //Imagen
+          SizedBox(
+            width: 180,
+            height: 110,
+            child: Image.asset(
+              'lib/img/tienda1.png',
+              fit: BoxFit.fill,
+            ),
+          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   //Texto Nombre
+                  Text(
+                    'Nombre Tienda',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2274A5),
+                    ),
+                  ),
                   //Texto Tipo
+                  Text(
+                    'Tipo Tienda',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF919B9D),
+                    ),
+                  ),
                 ],
               ),
               //Estrellas
+              RatingBar(
+                  initialRating: 4,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemSize: 15,
+                  itemCount: 4,
+                  ratingWidget: RatingWidget(
+                      full: const Icon(Icons.star, color: Colors.orange),
+                      half: const Icon(
+                        Icons.star_half,
+                        color: Colors.orange,
+                      ),
+                      empty: const Icon(
+                        Icons.star_outline,
+                        color: Colors.orange,
+                      )),
+                  onRatingUpdate: (value) {
+                    // setState(() {
+                    //   _ratingValue = value;
+                    // });
+                  }),
+            ],
+          ),
+        ],
+      ),
+    );
+
+Widget buildCardShop() => Container(
+      decoration: const BoxDecoration(
+          color: Color(0xFFF5F4F4),
+          borderRadius: BorderRadius.all(Radius.circular(8))),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 120,
+            height: 80,
+            child: Image.asset(
+              'lib/img/tienda2.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //Texto Nombre
+              const Text(
+                'Nombre Tienda',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF2274A5),
+                ),
+              ),
+              //Texto Tipo
+              const Text(
+                'Tipo Tienda',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF919B9D),
+                ),
+              ),
+              RatingBar(
+                  initialRating: 4,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemSize: 14,
+                  itemCount: 4,
+                  ratingWidget: RatingWidget(
+                      full: const Icon(Icons.star, color: Colors.orange),
+                      half: const Icon(
+                        Icons.star_half,
+                        color: Colors.orange,
+                      ),
+                      empty: const Icon(
+                        Icons.star_outline,
+                        color: Colors.orange,
+                      )),
+                  onRatingUpdate: (value) {
+                    // setState(() {
+                    //   _ratingValue = value;
+                    // });
+                  }),
             ],
           ),
         ],
