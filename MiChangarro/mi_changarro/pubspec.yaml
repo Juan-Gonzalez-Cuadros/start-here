@@ -14,6 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.0.3
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +31,5 @@ flutter:
     - lib/img/tcinicsesion.svg
     - lib/img/tclogoblanco.svg
     - lib/img/tclogonaranja.svg
+    - lib/img/tienda1.png
+    - lib/img/tienda2.png
