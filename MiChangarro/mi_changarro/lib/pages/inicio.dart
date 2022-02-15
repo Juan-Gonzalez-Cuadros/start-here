@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mi_changarro/pages/inicio_tienda.dart';
 
 class Inicio extends StatefulWidget {
   Inicio({Key? key}) : super(key: key);
@@ -85,7 +86,14 @@ class _InicioState extends State<Inicio> {
               scrollDirection: Axis.horizontal,
               itemCount: 3,
               separatorBuilder: (context, _) => const SizedBox(width: 12),
-              itemBuilder: (context, index) => buildCardPopulares(),
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => InicioTienda()),
+                  );
+                },
+                child: buildCardPopulares(),
+              ),
             ),
           ),
           const SizedBox(height: 20),
