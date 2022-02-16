@@ -85,8 +85,6 @@ class _InicioTiendaState extends State<InicioTienda>
                           ),
                           decoration: const BoxDecoration(
                             color: Color(0xFFFFBD2D),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0)),
                           ),
                         ),
                       ),
