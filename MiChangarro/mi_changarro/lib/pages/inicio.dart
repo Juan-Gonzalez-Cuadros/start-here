@@ -89,7 +89,9 @@ class _InicioState extends State<Inicio> {
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => InicioTienda()),
+                    MaterialPageRoute(
+                        builder: (context) => InicioTienda(),
+                        maintainState: false),
                   );
                 },
                 child: buildCardPopulares(),
